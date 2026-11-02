@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Subraya — estudia contestando</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=7">
+</head>
+<body>
+<div class="wrap">
+<nav><span class="logo">Subraya</span><button class="btn ghost" id="openSet">Ajustes</button></nav>
+<header class="hero">
+<h1>Estudia contestando, <mark>no releyendo.</mark></h1>
+<p>Sube tus apuntes y Subraya te pregunta. Si aciertas varias seguidas, suben de nivel; las que fallas vuelven más tarde para que las fijes. Sin cuentas ni suscripciones.</p>
+</header>
+
+<section id="lib" class="rv">
+<h2>1. Tus apuntes</h2>
+<div class="ctrl">
+<label class="btn">Subir archivos<input type="file" id="file" accept=".pdf,.docx,.pptx,.txt,.md" multiple hidden></label>
+<button class="btn ghost" id="pasteBtn">Pegar texto</button>
+<label class="chk"><input type="checkbox" id="merge" checked> Combinar varios archivos en un solo tema</label>
+<input type="file" id="file2" accept=".pdf,.docx,.pptx,.txt,.md" multiple hidden>
+</div>
+<div id="paste" hidden>
+<input id="pname" placeholder="Nombre del tema" aria-label="Nombre del tema">
+<textarea id="ptext" placeholder="Pega aquí tus apuntes…" aria-label="Apuntes"></textarea>
+<button class="btn" id="psave">Guardar</button>
+</div>
+<div class="msg" id="msg" role="status"></div>
+<ul id="list" class="list"></ul>
+</section>
+
+<section id="study" hidden>
+<h2>2. Sesión: <span id="cur"></span></h2>
+<div class="stats">
+<div><small>Nivel</small><b id="lvl"></b></div>
+<div class="bar"><i id="xpbar"></i></div>
+<div><small>Puntos</small><b id="xp"></b></div>
+</div>
+<div id="lvname" class="msg"></div>
+<div class="daily"><span id="dtxt"></span><div class="dbar"><i id="dbar"></i></div></div>
+<div id="play">
+<div id="tag" class="tag" hidden>↻ Repaso: la fallaste antes</div>
+<div id="qbox" class="qbox"></div>
+<div id="opts" class="opts"></div>
+<p class="hint">Atajos: teclas 1–4 para elegir · Enter para continuar</p>
+<div class="ctrl">
+<button class="btn ghost" id="idk" disabled>No lo sé</button>
+<button class="btn ghost" id="next" hidden>Siguiente pregunta</button>
+</div>
+<div id="fb" class="fb" hidden></div>
+</div>
+<div id="sum" class="sum" hidden></div>
+</section>
+<footer>Subraya · proyecto personal. Tus apuntes y tu clave se guardan solo en este navegador.</footer>
+</div>
+
+<dialog id="set">
+<h3>Ajustes</h3>
+<p class="msg">Clave gratuita de Google Gemini: aistudio.google.com → «Get API key». Se guarda solo en este navegador y se envía únicamente a Google.</p>
+<label>Clave de API<input id="key" type="password" autocomplete="off" placeholder="AIza..."></label>
+<label>Modelo<input id="model" placeholder="gemini-flash-lite-latest"></label>
+<label>Objetivo diario (preguntas)<input id="goal" type="number" min="5" max="500"></label>
+<label class="chk"><input type="checkbox" id="fx"> Sonidos (la vibración no funciona en iPhone)</label>
+<div class="ctrl"><button class="btn" id="saveSet">Guardar</button><button class="btn ghost" id="closeSet">Cerrar</button></div>
+<hr>
+<p class="msg">Para pasar tu progreso a otro dispositivo, expórtalo aquí e impórtalo allí.</p>
+<div class="ctrl"><button class="btn ghost" id="exp">Exportar progreso</button><label class="btn ghost">Importar<input type="file" id="imp" accept=".json,application/json" hidden></label></div>
+</dialog>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="app.js?v=7"></script>
+</body>
+</html>
