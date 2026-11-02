@@ -1,0 +1,46 @@
+:root{--bg:#EEF2EF;--surface:#fff;--ink:#16201C;--muted:#5A6862;--line:#D5DDD8;--accent:#2F4BFF;--accent-ink:#fff;--hl:#FFD84D;--ok:#177A4B;--bad:#C23B3B;--okbg:#DDF3E6;--badbg:#F9E0E0;--mid:#FFF1BF;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root{--bg:#101613;--surface:#19211D;--ink:#EAF0EC;--muted:#9AA9A1;--line:#2B3731;--accent:#7C8FFF;--accent-ink:#0B0F0D;--hl:#E8C23A;--ok:#5AD39A;--bad:#FF8A8A;--okbg:#17352A;--badbg:#3A1E1E;--mid:#3A3318}}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "Instrument Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.1;margin:0;letter-spacing:-.02em}
+.wrap{max-width:760px;margin:0 auto;padding:0 22px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.logo{font:800 24px "Bricolage Grotesque",sans-serif;background:linear-gradient(transparent 58%,var(--hl) 58% 92%,transparent 92%);padding:0 4px}
+.hero{padding:36px 0 24px}
+.hero h1{font-size:clamp(38px,8vw,64px);font-weight:800}
+.hero mark{background:linear-gradient(transparent 55%,var(--hl) 55% 94%,transparent 94%);color:inherit}
+.hero p{color:var(--muted);font-size:19px;max-width:50ch;margin:18px 0 0}
+section{padding:30px 0;border-top:1.5px solid var(--line)}
+section h2{font-size:28px;margin-bottom:18px}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);border:0;border-radius:10px;padding:12px 20px;font:600 16px "Instrument Sans",sans-serif;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn:focus-within,.btn:focus-visible,textarea:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.ctrl{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:12px 0}
+textarea,input:not([type=file]),select{width:100%;background:var(--surface);color:var(--ink);border:1.5px solid var(--line);border-radius:10px;padding:12px;font:400 16px/1.5 "Instrument Sans",sans-serif;margin-top:6px}
+textarea{min-height:130px;resize:vertical}
+#paste{margin:12px 0}#paste input{margin-bottom:10px}#paste .btn{margin-top:10px}
+.msg{color:var(--muted);font-size:15px;min-height:1.3em}.msg.err{color:var(--bad)}
+.list{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:10px}
+.list li{display:flex;justify-content:space-between;gap:10px;align-items:center;background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px}
+.list li.on{border-color:var(--accent)}
+.list small{color:var(--muted);display:block}
+.list .row{display:flex;gap:8px}.list .btn{padding:8px 14px;font-size:14px}
+.stats{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center}
+.stats small{display:block;color:var(--muted);font-size:13px}.stats b{font:800 26px "Bricolage Grotesque",sans-serif}
+.bar{height:10px;border-radius:99px;background:var(--line);overflow:hidden}.bar i{display:block;height:100%;width:0;background:var(--hl);transition:width .4s}
+.qbox{background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:20px;margin:16px 0 12px;font:600 21px/1.35 "Bricolage Grotesque",sans-serif;min-height:90px}
+.fb{border-radius:14px;padding:16px 18px;margin-top:14px;border:1.5px solid var(--line)}
+.fb.correcta{background:var(--okbg);border-color:var(--ok)}.fb.parcial{background:var(--mid)}.fb.incorrecta{background:var(--badbg);border-color:var(--bad)}
+.fb p{margin:6px 0}.fb .lvup{font:800 20px "Bricolage Grotesque",sans-serif}
+footer{padding:30px 0;color:var(--muted);font-size:14px}
+dialog{max-width:440px;width:calc(100% - 32px);border:1.5px solid var(--line);border-radius:16px;background:var(--bg);color:var(--ink);padding:22px}
+dialog::backdrop{background:rgba(0,0,0,.5)}dialog label{display:block;margin:12px 0;font-weight:500}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.bar i{transition:none}}
+.opts{display:grid;gap:8px}
+.opt{display:block;width:100%;text-align:left;background:var(--surface);color:var(--ink);border:1.5px solid var(--line);border-radius:10px;padding:13px 16px;font:400 16px/1.4 "Instrument Sans",sans-serif;cursor:pointer}
+.opt:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.opt:disabled{cursor:default;color:var(--ink);opacity:1}
+.opt.ok{background:var(--okbg);border-color:var(--ok)}
+.opt.bad{background:var(--badbg);border-color:var(--bad)}
